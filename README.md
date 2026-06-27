@@ -1,7 +1,7 @@
 # Dev (TCM) - Walkthrough
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Difficulty-Easy-Medium-green">
+  <img src="https://img.shields.io/badge/Difficulty-medium-yellow)">
   <img src="https://img.shields.io/badge/OS-Linux-blue">
   <img src="https://img.shields.io/badge/Status-Rooted-success">
 </p>
