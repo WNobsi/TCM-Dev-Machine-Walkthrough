@@ -6,8 +6,8 @@
   <img src="https://img.shields.io/badge/Status-Rooted-success">
 </p>
 
-> **Platform:** TCM  
-> **Machine:** Academy  
+> **Author:** TCM  
+> **Machine:** Dev 
 > **Difficulty:** Higher End - Easy
 > **Objective:** Gain root access and capture the flag.
 
