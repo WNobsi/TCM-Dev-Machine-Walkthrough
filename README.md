@@ -1,15 +1,10 @@
 # Dev (TCM) - Walkthrough
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Difficulty-Easy-green">
+  <img src="https://img.shields.io/badge/Difficulty-Easy-Medium-green">
   <img src="https://img.shields.io/badge/OS-Linux-blue">
   <img src="https://img.shields.io/badge/Status-Rooted-success">
 </p>
-
-> **Author:** TCM  
-> **Machine:** Dev 
-> **Difficulty:** Higher End - Easy
-> **Objective:** Gain root access and capture the flag.
 
 > A complete penetration testing walkthrough of the **Dev** machine from TCM Security's series, documenting the attack path from reconnaissance to root compromise, along with vulnerability assessment and remediation recommendations.
 
@@ -47,7 +42,6 @@ One of the key lessons from this machine is that attackers rarely rely on a sing
 | Attribute | Value |
 |-----------|--------|
 | Name | Dev |
-| Author | VulnHub |
 | Author | TCM Security |
 | Operating System | Linux |
 | Difficulty | Easy-Medium |
