@@ -1,6 +1,17 @@
-# Dev (TCM) - VulnHub Walkthrough
+# Dev (TCM) - Walkthrough
 
-> A complete penetration testing walkthrough of the **Dev** machine from TCM Security's VulnHub series, documenting the attack path from reconnaissance to root compromise, along with vulnerability assessment and remediation recommendations.
+<p align="center">
+  <img src="https://img.shields.io/badge/Difficulty-Easy-green">
+  <img src="https://img.shields.io/badge/OS-Linux-blue">
+  <img src="https://img.shields.io/badge/Status-Rooted-success">
+</p>
+
+> **Platform:** TCM  
+> **Machine:** Academy  
+> **Difficulty:** Higher End - Easy
+> **Objective:** Gain root access and capture the flag.
+
+> A complete penetration testing walkthrough of the **Dev** machine from TCM Security's series, documenting the attack path from reconnaissance to root compromise, along with vulnerability assessment and remediation recommendations.
 
 ---
 
@@ -36,7 +47,7 @@ One of the key lessons from this machine is that attackers rarely rely on a sing
 | Attribute | Value |
 |-----------|--------|
 | Name | Dev |
-| Platform | VulnHub |
+| Author | VulnHub |
 | Author | TCM Security |
 | Operating System | Linux |
 | Difficulty | Easy-Medium |
@@ -70,7 +81,7 @@ M --> N[Flag Capture]
 ## Host Discovery
 
 ```bash
-netdiscover
+netdiscover -r 192.168.126.0/24
 ```
 
 or
@@ -79,7 +90,7 @@ or
 nmap -sn 192.168.126.0/24
 ```
 
-Target:
+Target discovered:
 
 ```text
 192.168.126.133
@@ -90,7 +101,7 @@ Target:
 ## Port Scanning
 
 ```bash
-nmap -sC -sV -A -Pn 192.168.126.133
+nmap -sS -A -T4 -p- 192.168.126.133
 ```
 
 ### Open Ports
@@ -130,11 +141,20 @@ The application revealed:
 ## Directory Enumeration
 
 ```bash
-feroxbuster -u http://192.168.126.133 -x php
+feroxbuster -u http://192.168.126.133 -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt -t 500 -r --depth 5 --scan-dir-listings
 ```
 
 ```bash
-ffuf -u http://192.168.126.133/FUZZ -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt
+ffuf -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt:FUZZ -u http://192.168.126.133/FUZZ
+```
+
+For 8080:
+```bash
+feroxbuster -u http://192.168.126.133:8080 -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt -t 500 -r --depth 5 --scan-dir-listings
+```
+
+```bash
+ffuf -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt:FUZZ -u http://192.168.126.133:8080/FUZZ
 ```
 
 Interesting directories:
